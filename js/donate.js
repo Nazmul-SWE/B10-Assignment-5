@@ -3,6 +3,7 @@ document.getElementById('btn-donate-1').addEventListener('click',function(event)
   const addMoney=  getInputFieldByValue('input-add-money');
   const mainBalance=getTextFieldByValue('main-balance');
   const cardBalance= getTextFieldByValue('donated-value');
+
   if(isNaN(addMoney)){
     alert("Not A number");
     return;
@@ -14,15 +15,18 @@ document.getElementById('btn-donate-1').addEventListener('click',function(event)
       const newCardBalance= cardBalance+addMoney;
       document.getElementById('main-balance').innerText=newBalance;
       document.getElementById('donated-value').innerText=newCardBalance;
+      const date = new Date();
 
       // Transactions histry
       const div = document.createElement('div');
-            div.classList.add('bg-yellow-300');
+            div.classList.add('border');
             div.innerHTML = `
-                <h4 class="text-2xl font-bold">Cash Out</h4>
-               <p>New Balance ${newBalance}. New card balance ${newCardBalance} </p>
+                <h4 class="text-2xl font-bold">
+                 ${newCardBalance} Taka is Donated for famine-2024 at Feni, Bangladesh
+                </h4>
+               <p> ${date}</p>
             `
- // <p>${newCardBalance} withdraw. New Balance ${newBalance}</p>
+ 
             document.getElementById('history-container').appendChild(div);
       
     }
